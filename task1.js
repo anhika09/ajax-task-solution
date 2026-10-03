@@ -5,3 +5,13 @@
 // який створений у файлі index.html
 // Запустити програму за допомогою Live Server
 // Перевірити за допомогою команди npm tests/task1.test.js 
+fetch ("https://jsonplaceholder.typicode.com/users")
+  .then(response => response.json())
+  .then(users => {
+    const userList = document.querySelector('.usersList');
+    users.forEach(user => {
+      const li = document.createElement('li');
+      li.textContent = user.name;
+      userList.appendChild(li);
+    });
+  });
